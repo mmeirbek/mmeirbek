@@ -116,7 +116,7 @@ An experimental product focused on digital exchange infrastructure.
 <p align="center">
   <img
     src="./assets/github-stats.svg"
-    width="100%"
+    width="700"
     alt="GitHub statistics"
   />
 </p>
@@ -124,7 +124,7 @@ An experimental product focused on digital exchange infrastructure.
 <p align="center">
   <img
     src="./assets/streak.svg"
-    width="100%"
+    width="700"
     alt="Contribution streak"
   />
 </p>
@@ -132,7 +132,7 @@ An experimental product focused on digital exchange infrastructure.
 <p align="center">
   <img
     src="./assets/activity.svg"
-    width="100%"
+    width="700"
     alt="GitHub activity"
   />
 </p>
