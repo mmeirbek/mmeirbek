@@ -115,19 +115,24 @@ An experimental product focused on digital exchange infrastructure.
 
 <p align="center">
   <img
-    src="https://github-readme-stats.vercel.app/api?username=mmeirbek&show_icons=true&hide_border=true&rank_icon=github"
-    height="170"
-  />
-  <img
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=mmeirbek&layout=compact&hide_border=true"
-    height="170"
+    src="./assets/github-stats.svg"
+    width="100%"
+    alt="GitHub statistics"
   />
 </p>
 
----
+<p align="center">
+  <img
+    src="./assets/streak.svg"
+    width="100%"
+    alt="Contribution streak"
+  />
+</p>
 
 <p align="center">
-
-### Having fun with tech.
-
+  <img
+    src="./assets/activity.svg"
+    width="100%"
+    alt="GitHub activity"
+  />
 </p>
