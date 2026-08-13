@@ -4,139 +4,130 @@
 
 > vibing with tech
 
-I'm a student and developer from Kazakhstan passionate about **AI, software engineering, startups, and product development**.
+<p align="left">
+  <a href="https://github.com/mmeirbek">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" />
+  </a>
+  <a href="https://www.linkedin.com/in/meirbek-nurdaulet/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="@mmeirbek">
+    <img src="https://img.shields.io/badge/Telegram-26A5E4?style=flat-square&logo=telegram&logoColor=white" />
+  </a>
+  <a href="mailto:meirnur22@gmail.com">
+    <img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white" />
+  </a>
+</p>
 
-I enjoy turning ideas into real products — from the first architecture diagram to a working MVP.
+---
+
+## 🟢 Now
+
+**Building:** MUNAI & Visora  
+**Learning:** AI Engineering & System Design  
+**Exploring:** Startups, AI products & new ideas  
+**Based in:** Kazakhstan 🇰🇿
 
 ---
 
 ## 🚀 What I'm Building
 
-<table>
-<tr>
-<td width="50%">
-
 ### 🛢️ MUNAI
-
 **AI × Oil & Gas**
 
-An AI-powered platform designed to improve operational workflows in the oil & gas industry.
+AI-powered platform for improving operational workflows in the oil & gas industry.
 
-**Focus:**
-- AI-assisted reporting
-- Speech-to-text
-- Data validation
-- Analytics
-- Predictive insights
-
-**Status:** 🟢 Building
-
-</td>
-
-<td width="50%">
-
-### 🎮 Visora
-
-**SaaS × Gaming**
-
-A management and reservation platform for computer clubs and entertainment spaces.
-
-**Focus:**
-- Real-time reservations
-- Interactive club maps
-- Analytics
-- Admin management
-- WebSocket infrastructure
+`AI` `Python` `React` `Analytics`
 
 **Status:** 🟡 MVP
 
-</td>
-</tr>
+---
 
-<tr>
-<td width="50%">
+### 🎮 Visora
+**SaaS × Gaming**
+
+Reservation and management infrastructure for computer clubs and entertainment spaces.
+
+`Next.js` `NestJS` `PostgreSQL` `WebSocket`
+
+**Status:** 🟡 MVP
+
+---
 
 ### 🎓 SAÑLAQ
-
 **EdTech × Game**
 
-An educational game designed to make learning more engaging and interactive.
+An educational game focused on making learning more interactive and engaging.
 
-**Focus:**
-- Gamification
-- Education
-- Interactive experiences
+`EdTech` `Gamification` `Game`
 
 **Status:** 🔵 Exploring
 
-</td>
-
-<td width="50%">
+---
 
 ### 💱 CaspX
-
 **FinTech × Marketplace**
 
-An experimental product concept focused on building digital exchange infrastructure.
+An experimental product focused on digital exchange infrastructure.
 
-**Focus:**
-- Product architecture
-- APIs
-- Modern web applications
+`TypeScript` `React` `APIs`
 
-**Status:** 🔵 Exploring
+**Status:** 🟢 Building
 
-</td>
-</tr>
-</table>
+---
+
+## 🏆 Highlights
+
+- 🛢️ Built **MUNAI**, an AI platform for Oil & Gas
+- 💰 Won **2000 $** from hackathons & contests
+- 🚀 Building startup projects
+- 🧠 Exploring AI Engineering & System Design
+- 🧑‍💻 Working across frontend, backend, AI and product architecture
+- 🇰🇿 Building from Kazakhstan, Aktau
 
 ---
 
 ## 🧠 Engineering
 
-### Languages
+**Languages**
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+`TypeScript` `Python` `JavaScript`
 
-### Frontend
+**Frontend**
 
-![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+`React` `Next.js` `Tailwind CSS`
 
-### Backend
+**Backend**
 
-![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
+`NestJS` `FastAPI` `Django`
 
-### Data & Infrastructure
+**Data & Infrastructure**
 
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
+`PostgreSQL` `SQLite` `PostGIS` `Docker` `Vercel`
+
+**AI**
+
+`LLM Applications` `RAG` `AI APIs` `Machine Learning`
 
 ---
 
-## 🏗️ How I Think About Software
+## 📊 GitHub Stats
 
-I care about more than just writing code.
+<p align="center">
+  <img
+    src="https://github-readme-stats.vercel.app/api?username=mmeirbek&show_icons=true&hide_border=true&rank_icon=github"
+    height="170"
+  />
+  <img
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=mmeirbek&layout=compact&hide_border=true"
+    height="170"
+  />
+</p>
 
-```text
-Problem
-   ↓
-Research
-   ↓
-Architecture
-   ↓
-MVP
-   ↓
-Real Users
-   ↓
-Feedback
-   ↓
-Iteration
-   ↓
-Product
+---
+
+<p align="center">
+
+### Having fun with tech.
+
+</p>
