@@ -6,8 +6,8 @@ from pathlib import Path
 
 USERNAME = "mmeirbek"
 
-API = "https://api.github.com"
-GRAPHQL = "https://api.github.com/graphql"
+API_URL = "https://api.github.com"
+GRAPHQL_URL = "https://api.github.com/graphql"
 
 TOKEN = os.environ["GITHUB_TOKEN"]
 
@@ -18,25 +18,35 @@ HEADERS = {
 }
 
 
-def request(url):
-    req = urllib.request.Request(url, headers=HEADERS)
-    with urllib.request.urlopen(req) as response:
+# ─────────────────────────────────────────────
+# GitHub API
+# ─────────────────────────────────────────────
+
+def api_get(url):
+    request = urllib.request.Request(
+        url,
+        headers=HEADERS,
+    )
+
+    with urllib.request.urlopen(request) as response:
         return json.loads(response.read())
 
 
 def graphql(query):
-    data = json.dumps({"query": query}).encode()
+    payload = json.dumps({
+        "query": query
+    }).encode("utf-8")
 
-    req = urllib.request.Request(
-        GRAPHQL,
-        data=data,
+    request = urllib.request.Request(
+        GRAPHQL_URL,
+        data=payload,
         headers={
             **HEADERS,
             "Content-Type": "application/json",
         },
     )
 
-    with urllib.request.urlopen(req) as response:
+    with urllib.request.urlopen(request) as response:
         result = json.loads(response.read())
 
     if "errors" in result:
@@ -45,55 +55,72 @@ def graphql(query):
     return result["data"]
 
 
+# ─────────────────────────────────────────────
+# User information
+# ─────────────────────────────────────────────
+
 def get_user():
-    return request(f"{API}/users/{USERNAME}")
+    return api_get(
+        f"{API_URL}/users/{USERNAME}"
+    )
 
 
 def get_repositories():
-    repos = []
+    repositories = []
     page = 1
 
     while True:
-        data = request(
-            f"{API}/users/{USERNAME}/repos"
-            f"?per_page=100&page={page}&type=owner"
+        data = api_get(
+            f"{API_URL}/users/{USERNAME}/repos"
+            f"?per_page=100"
+            f"&page={page}"
+            f"&type=owner"
         )
 
         if not data:
             break
 
-        repos.extend(data)
+        repositories.extend(data)
 
         if len(data) < 100:
             break
 
         page += 1
 
-    return repos
+    return repositories
 
+
+# ─────────────────────────────────────────────
+# Contributions
+# ─────────────────────────────────────────────
 
 def get_contributions():
-    query = """
-    query {
-      user(login: "mmeirbek") {
-        contributionsCollection {
-          contributionCalendar {
-            totalContributions
-            weeks {
-              contributionDays {
-                date
-                contributionCount
-              }
-            }
-          }
-        }
-      }
-    }
+    query = f"""
+    query {{
+        user(login: "{USERNAME}") {{
+            contributionsCollection {{
+                contributionCalendar {{
+                    totalContributions
+
+                    weeks {{
+                        contributionDays {{
+                            date
+                            contributionCount
+                        }}
+                    }}
+                }}
+            }}
+        }}
+    }}
     """
 
     data = graphql(query)
 
-    calendar = data["user"]["contributionsCollection"]["contributionCalendar"]
+    calendar = (
+        data["user"]
+        ["contributionsCollection"]
+        ["contributionCalendar"]
+    )
 
     days = []
 
@@ -104,8 +131,15 @@ def get_contributions():
                 "count": day["contributionCount"],
             })
 
-    return calendar["totalContributions"], days
+    return (
+        calendar["totalContributions"],
+        days,
+    )
 
+
+# ─────────────────────────────────────────────
+# Contribution streak
+# ─────────────────────────────────────────────
 
 def calculate_streak(days):
     counts = {
@@ -113,24 +147,38 @@ def calculate_streak(days):
         for day in days
     }
 
-    today = datetime.now(timezone.utc).date()
+    today = datetime.now(
+        timezone.utc
+    ).date()
 
     current = today
 
-    # If today has no contribution, start from yesterday.
-    if counts.get(current.isoformat(), 0) == 0:
+    # If there was no contribution today,
+    # start checking from yesterday.
+    if counts.get(
+        current.isoformat(),
+        0
+    ) == 0:
         current -= timedelta(days=1)
 
     streak = 0
 
-    while counts.get(current.isoformat(), 0) > 0:
+    while counts.get(
+        current.isoformat(),
+        0
+    ) > 0:
+
         streak += 1
         current -= timedelta(days=1)
 
     return streak
 
 
-def esc(value):
+# ─────────────────────────────────────────────
+# SVG helpers
+# ─────────────────────────────────────────────
+
+def escape(value):
     return (
         str(value)
         .replace("&", "&amp;")
@@ -140,202 +188,428 @@ def esc(value):
     )
 
 
-def write_stats(user, repos, contributions):
-    total_contributions, days = contributions
+# ─────────────────────────────────────────────
+# Generate compact SVG
+# ─────────────────────────────────────────────
 
-    stars = sum(repo["stargazers_count"] for repo in repos)
-    repositories = len(repos)
-    followers = user["followers"]
+def generate_svg(
+    total_contributions,
+    stars,
+    repositories,
+    followers,
+    streak,
+    days,
+):
 
-    svg = f"""<svg width="900" height="230"
-xmlns="http://www.w3.org/2000/svg">
+    WIDTH = 760
+    HEIGHT = 175
 
-<style>
-  .bg {{
-    fill: #0d1117;
-  }}
-
-  .title {{
-    fill: #8b949e;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }}
-
-  .value {{
-    fill: #f0f6fc;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 30px;
-    font-weight: 700;
-  }}
-
-  .card {{
-    fill: #161b22;
-    stroke: #30363d;
-    stroke-width: 1;
-  }}
-</style>
-
-<rect width="900" height="230" rx="16" class="bg"/>
-
-<rect x="20" y="20" width="410" height="85" rx="12" class="card"/>
-<rect x="450" y="20" width="430" height="85" rx="12" class="card"/>
-
-<rect x="20" y="125" width="410" height="85" rx="12" class="card"/>
-<rect x="450" y="125" width="430" height="85" rx="12" class="card"/>
-
-<text x="45" y="50" class="title">CONTRIBUTIONS</text>
-<text x="45" y="88" class="value">{esc(total_contributions)}</text>
-
-<text x="475" y="50" class="title">⭐ STARS</text>
-<text x="475" y="88" class="value">{esc(stars)}</text>
-
-<text x="45" y="155" class="title">📦 REPOSITORIES</text>
-<text x="45" y="193" class="value">{esc(repositories)}</text>
-
-<text x="475" y="155" class="title">👥 FOLLOWERS</text>
-<text x="475" y="193" class="value">{esc(followers)}</text>
-
-</svg>
-"""
-
-    Path("assets/github-stats.svg").write_text(svg, encoding="utf-8")
-
-
-def write_streak(days):
-    streak = calculate_streak(days)
-
-    svg = f"""<svg width="900" height="145"
-xmlns="http://www.w3.org/2000/svg">
-
-<style>
-  .bg {{
-    fill: #0d1117;
-  }}
-
-  .title {{
-    fill: #8b949e;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }}
-
-  .value {{
-    fill: #f0f6fc;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-  }}
-
-  .accent {{
-    fill: #f0883e;
-  }}
-</style>
-
-<rect width="900" height="145" rx="16" class="bg"/>
-
-<text x="35" y="38" class="title">🔥 CONTRIBUTION STREAK</text>
-
-<text x="35" y="88" class="value">
-  {esc(streak)} days
-</text>
-
-<rect x="35" y="108" width="830" height="3" rx="2" class="accent"/>
-
-</svg>
-"""
-
-    Path("assets/streak.svg").write_text(svg, encoding="utf-8")
-
-
-def write_activity(days):
     # Last 30 days
-    recent = days[-30:]
+    recent_days = days[-30:]
 
-    max_count = max(
-        [day["count"] for day in recent] or [1]
+    max_activity = max(
+        [day["count"] for day in recent_days]
+        or [1]
     )
 
-    width = 900
-    height = 180
-
-    bar_width = 22
-    gap = 7
-
+    # Activity bars
     bars = []
 
-    for i, day in enumerate(recent):
+    bar_width = 13
+    gap = 8
+
+    start_x = 455
+    baseline_y = 143
+    max_height = 38
+
+    for index, day in enumerate(recent_days):
+
         count = day["count"]
 
-        bar_height = max(
-            4,
-            int((count / max_count) * 90)
+        if max_activity > 0:
+            height = int(
+                (count / max_activity)
+                * max_height
+            )
+        else:
+            height = 0
+
+        # Minimum visual height for active days
+        if count > 0:
+            height = max(
+                height,
+                5
+            )
+
+        x = (
+            start_x
+            + index * (bar_width + gap)
         )
 
-        x = 30 + i * (bar_width + gap)
-        y = 125 - bar_height
+        y = baseline_y - height
 
-        opacity = 0.25 + (
-            0.75 * (count / max_count)
-        ) if count else 0.12
+        opacity = (
+            0.18
+            if count == 0
+            else 0.35
+            + (
+                0.65
+                * count
+                / max_activity
+            )
+        )
 
         bars.append(
-            f'''
+            f"""
             <rect
-              x="{x}"
-              y="{y}"
-              width="{bar_width}"
-              height="{bar_height}"
-              rx="5"
-              fill="#58a6ff"
-              opacity="{opacity:.2f}"
+                x="{x}"
+                y="{y}"
+                width="{bar_width}"
+                height="{max(height, 2)}"
+                rx="4"
+                fill="#58A6FF"
+                opacity="{opacity:.2f}"
             />
-            '''
+            """
         )
 
-    svg = f"""<svg width="{width}" height="{height}"
-xmlns="http://www.w3.org/2000/svg">
+    activity_bars = "".join(bars)
+
+    # ─────────────────────────────────────────
+    # SVG
+    # ─────────────────────────────────────────
+
+    svg = f"""<svg
+    width="{WIDTH}"
+    height="{HEIGHT}"
+    viewBox="0 0 {WIDTH} {HEIGHT}"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
 
 <style>
-  .bg {{
-    fill: #0d1117;
-  }}
 
-  .title {{
-    fill: #8b949e;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }}
+    .background {{
+        fill: #0D1117;
+    }}
+
+    .border {{
+        fill: none;
+        stroke: #30363D;
+        stroke-width: 1;
+    }}
+
+    .label {{
+        fill: #8B949E;
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.7px;
+    }}
+
+    .value {{
+        fill: #F0F6FC;
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+        font-size: 18px;
+        font-weight: 700;
+    }}
+
+    .small {{
+        fill: #8B949E;
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+        font-size: 11px;
+    }}
+
+    .streak {{
+        fill: #F0883E;
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+        font-size: 12px;
+        font-weight: 600;
+    }}
+
 </style>
 
-<rect width="{width}" height="{height}" rx="16" class="bg"/>
 
-<text x="30" y="32" class="title">📈 ACTIVITY · LAST 30 DAYS</text>
+<!-- Background -->
 
-{''.join(bars)}
+<rect
+    x="0.5"
+    y="0.5"
+    width="{WIDTH - 1}"
+    height="{HEIGHT - 1}"
+    rx="14"
+    class="background"
+/>
+
+<rect
+    x="0.5"
+    y="0.5"
+    width="{WIDTH - 1}"
+    height="{HEIGHT - 1}"
+    rx="14"
+    class="border"
+/>
+
+
+<!-- Header -->
+
+<text
+    x="24"
+    y="27"
+    class="label"
+>
+    📊 GITHUB STATS
+</text>
+
+
+<!-- Stats -->
+
+<text
+    x="24"
+    y="52"
+    class="value"
+>
+    {escape(total_contributions)}
+</text>
+
+<text
+    x="24"
+    y="69"
+    class="label"
+>
+    CONTRIBUTIONS
+</text>
+
+
+<text
+    x="160"
+    y="52"
+    class="value"
+>
+    {escape(stars)}
+</text>
+
+<text
+    x="160"
+    y="69"
+    class="label"
+>
+    ⭐ STARS
+</text>
+
+
+<text
+    x="285"
+    y="52"
+    class="value"
+>
+    {escape(repositories)}
+</text>
+
+<text
+    x="285"
+    y="69"
+    class="label"
+>
+    📦 REPOSITORIES
+</text>
+
+
+<text
+    x="405"
+    y="52"
+    class="value"
+>
+    {escape(followers)}
+</text>
+
+<text
+    x="405"
+    y="69"
+    class="label"
+>
+    👥 FOLLOWERS
+</text>
+
+
+<!-- Divider -->
+
+<line
+    x1="24"
+    y1="82"
+    x2="736"
+    y2="82"
+    stroke="#21262D"
+/>
+
+
+<!-- Streak -->
+
+<text
+    x="24"
+    y="106"
+    class="streak"
+>
+    🔥 {escape(streak)} day streak
+</text>
+
+
+<!-- Activity label -->
+
+<text
+    x="455"
+    y="106"
+    class="label"
+>
+    📈 ACTIVITY
+</text>
+
+
+<!-- Activity -->
+
+{activity_bars}
+
+
+<!-- Activity baseline -->
+
+<line
+    x1="455"
+    y1="144"
+    x2="736"
+    y2="144"
+    stroke="#30363D"
+/>
+
+
+<!-- Footer -->
+
+<text
+    x="24"
+    y="143"
+    class="small"
+>
+    github.com/{escape(USERNAME)}
+</text>
+
 
 </svg>
 """
 
-    Path("assets/activity.svg").write_text(svg, encoding="utf-8")
+    return svg
 
+
+# ─────────────────────────────────────────────
+# Main
+# ─────────────────────────────────────────────
 
 def main():
-    Path("assets").mkdir(exist_ok=True)
+
+    print(
+        f"Fetching GitHub data for @{USERNAME}..."
+    )
 
     user = get_user()
-    repos = get_repositories()
-    contributions = get_contributions()
 
-    write_stats(user, repos, contributions)
-    write_streak(contributions[1])
-    write_activity(contributions[1])
+    repositories = get_repositories()
 
-    print("GitHub stats generated successfully.")
+    total_contributions, days = (
+        get_contributions()
+    )
+
+    # Total stars across owned repositories
+    stars = sum(
+        repo["stargazers_count"]
+        for repo in repositories
+    )
+
+    repository_count = len(
+        repositories
+    )
+
+    followers = user["followers"]
+
+    streak = calculate_streak(
+        days
+    )
+
+    svg = generate_svg(
+        total_contributions=
+            total_contributions,
+
+        stars=stars,
+
+        repositories=
+            repository_count,
+
+        followers=
+            followers,
+
+        streak=streak,
+
+        days=days,
+    )
+
+    output = Path(
+        "assets/github-stats.svg"
+    )
+
+    output.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    output.write_text(
+        svg,
+        encoding="utf-8"
+    )
+
+    print(
+        "✓ GitHub stats generated."
+    )
+
+    print(
+        f"  Contributions: {total_contributions}"
+    )
+
+    print(
+        f"  Stars:         {stars}"
+    )
+
+    print(
+        f"  Repositories:  {repository_count}"
+    )
+
+    print(
+        f"  Followers:     {followers}"
+    )
+
+    print(
+        f"  Streak:        {streak} days"
+    )
+
+    print(
+        f"✓ Saved to {output}"
+    )
 
 
 if __name__ == "__main__":
