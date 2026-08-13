@@ -1,0 +1,324 @@
+<svg width="900" height="180"
+xmlns="http://www.w3.org/2000/svg">
+
+<style>
+  .bg {
+    fill: #0d1117;
+  }
+
+  .title {
+    fill: #8b949e;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+</style>
+
+<rect width="900" height="180" rx="16" class="bg"/>
+
+<text x="30" y="32" class="title">📈 ACTIVITY · LAST 30 DAYS</text>
+
+
+            <rect
+              x="30"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="59"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="88"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="117"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="146"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="175"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="204"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="233"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="262"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="291"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="320"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="349"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="378"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="407"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="436"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="465"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="494"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="523"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="552"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="581"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="610"
+              y="35"
+              width="22"
+              height="90"
+              rx="5"
+              fill="#58a6ff"
+              opacity="1.00"
+            />
+            
+            <rect
+              x="639"
+              y="35"
+              width="22"
+              height="90"
+              rx="5"
+              fill="#58a6ff"
+              opacity="1.00"
+            />
+            
+            <rect
+              x="668"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="697"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="726"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="755"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="784"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="813"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="842"
+              y="121"
+              width="22"
+              height="4"
+              rx="5"
+              fill="#58a6ff"
+              opacity="0.12"
+            />
+            
+            <rect
+              x="871"
+              y="35"
+              width="22"
+              height="90"
+              rx="5"
+              fill="#58a6ff"
+              opacity="1.00"
+            />
+            
+
+</svg>

@@ -1,0 +1,39 @@
+<svg width="900" height="145"
+xmlns="http://www.w3.org/2000/svg">
+
+<style>
+  .bg {
+    fill: #0d1117;
+  }
+
+  .title {
+    fill: #8b949e;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .value {
+    fill: #f0f6fc;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .accent {
+    fill: #f0883e;
+  }
+</style>
+
+<rect width="900" height="145" rx="16" class="bg"/>
+
+<text x="35" y="38" class="title">🔥 CONTRIBUTION STREAK</text>
+
+<text x="35" y="88" class="value">
+  1 days
+</text>
+
+<rect x="35" y="108" width="830" height="3" rx="2" class="accent"/>
+
+</svg>
