@@ -116,7 +116,7 @@ An experimental product focused on digital exchange infrastructure.
 <p align="center">
   <img
     src="./assets/github-stats.svg"
-    width="700"
+    width="760"
     alt="GitHub statistics"
   />
 </p>
