@@ -120,19 +120,3 @@ An experimental product focused on digital exchange infrastructure.
     alt="GitHub statistics"
   />
 </p>
-
-<p align="center">
-  <img
-    src="./assets/streak.svg"
-    width="700"
-    alt="Contribution streak"
-  />
-</p>
-
-<p align="center">
-  <img
-    src="./assets/activity.svg"
-    width="700"
-    alt="GitHub activity"
-  />
-</p>
