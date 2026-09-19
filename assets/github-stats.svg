@@ -209,12 +209,12 @@
 
             <rect
                 x="455"
-                y="105"
+                y="143"
                 width="13"
-                height="38"
+                height="2"
                 rx="4"
                 fill="#58A6FF"
-                opacity="1.00"
+                opacity="0.18"
             />
             
             <rect
@@ -239,22 +239,22 @@
             
             <rect
                 x="518"
+                y="105"
+                width="13"
+                height="38"
+                rx="4"
+                fill="#58A6FF"
+                opacity="1.00"
+            />
+            
+            <rect
+                x="539"
                 y="143"
                 width="13"
                 height="2"
                 rx="4"
                 fill="#58A6FF"
                 opacity="0.18"
-            />
-            
-            <rect
-                x="539"
-                y="124"
-                width="13"
-                height="19"
-                rx="4"
-                fill="#58A6FF"
-                opacity="0.68"
             />
             
             <rect
