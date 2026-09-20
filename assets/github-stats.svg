@@ -108,7 +108,7 @@
     y="52"
     class="value"
 >
-    220
+    222
 </text>
 
 <text
@@ -142,7 +142,7 @@
     y="52"
     class="value"
 >
-    29
+    31
 </text>
 
 <text
@@ -189,7 +189,7 @@
     y="106"
     class="streak"
 >
-    🔥 0 day streak
+    🔥 1 day streak
 </text>
 
 
@@ -229,22 +229,22 @@
             
             <rect
                 x="497"
+                y="124"
+                width="13"
+                height="19"
+                rx="4"
+                fill="#58A6FF"
+                opacity="0.68"
+            />
+            
+            <rect
+                x="518"
                 y="143"
                 width="13"
                 height="2"
                 rx="4"
                 fill="#58A6FF"
                 opacity="0.18"
-            />
-            
-            <rect
-                x="518"
-                y="105"
-                width="13"
-                height="38"
-                rx="4"
-                fill="#58A6FF"
-                opacity="1.00"
             />
             
             <rect
@@ -489,12 +489,12 @@
             
             <rect
                 x="1043"
-                y="143"
+                y="105"
                 width="13"
-                height="2"
+                height="38"
                 rx="4"
                 fill="#58A6FF"
-                opacity="0.18"
+                opacity="1.00"
             />
             
             <rect
