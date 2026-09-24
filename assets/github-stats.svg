@@ -108,7 +108,7 @@
     y="52"
     class="value"
 >
-    345
+    367
 </text>
 
 <text
@@ -189,7 +189,7 @@
     y="106"
     class="streak"
 >
-    🔥 3 day streak
+    🔥 4 day streak
 </text>
 
 
@@ -449,16 +449,6 @@
             
             <rect
                 x="959"
-                y="143"
-                width="13"
-                height="2"
-                rx="4"
-                fill="#58A6FF"
-                opacity="0.18"
-            />
-            
-            <rect
-                x="980"
                 y="138"
                 width="13"
                 height="5"
@@ -468,7 +458,7 @@
             />
             
             <rect
-                x="1001"
+                x="980"
                 y="143"
                 width="13"
                 height="2"
@@ -478,7 +468,7 @@
             />
             
             <rect
-                x="1022"
+                x="1001"
                 y="131"
                 width="13"
                 height="12"
@@ -488,7 +478,7 @@
             />
             
             <rect
-                x="1043"
+                x="1022"
                 y="105"
                 width="13"
                 height="38"
@@ -498,13 +488,23 @@
             />
             
             <rect
+                x="1043"
+                y="132"
+                width="13"
+                height="11"
+                rx="4"
+                fill="#58A6FF"
+                opacity="0.55"
+            />
+            
+            <rect
                 x="1064"
                 y="138"
                 width="13"
                 height="5"
                 rx="4"
                 fill="#58A6FF"
-                opacity="0.40"
+                opacity="0.36"
             />
             
 
