@@ -108,7 +108,7 @@
     y="52"
     class="value"
 >
-    367
+    375
 </text>
 
 <text
@@ -439,16 +439,6 @@
             
             <rect
                 x="938"
-                y="143"
-                width="13"
-                height="2"
-                rx="4"
-                fill="#58A6FF"
-                opacity="0.18"
-            />
-            
-            <rect
-                x="959"
                 y="138"
                 width="13"
                 height="5"
@@ -458,7 +448,7 @@
             />
             
             <rect
-                x="980"
+                x="959"
                 y="143"
                 width="13"
                 height="2"
@@ -468,7 +458,7 @@
             />
             
             <rect
-                x="1001"
+                x="980"
                 y="131"
                 width="13"
                 height="12"
@@ -478,7 +468,7 @@
             />
             
             <rect
-                x="1022"
+                x="1001"
                 y="105"
                 width="13"
                 height="38"
@@ -488,7 +478,7 @@
             />
             
             <rect
-                x="1043"
+                x="1022"
                 y="132"
                 width="13"
                 height="11"
@@ -498,13 +488,23 @@
             />
             
             <rect
-                x="1064"
+                x="1043"
                 y="138"
                 width="13"
                 height="5"
                 rx="4"
                 fill="#58A6FF"
-                opacity="0.36"
+                opacity="0.42"
+            />
+            
+            <rect
+                x="1064"
+                y="143"
+                width="13"
+                height="2"
+                rx="4"
+                fill="#58A6FF"
+                opacity="0.18"
             />
             
 
