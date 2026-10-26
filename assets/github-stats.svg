@@ -108,7 +108,7 @@
     y="52"
     class="value"
 >
-    1368
+    1369
 </text>
 
 <text
@@ -189,7 +189,7 @@
     y="106"
     class="streak"
 >
-    🔥 1 day streak
+    🔥 0 day streak
 </text>
 
 
@@ -219,22 +219,22 @@
             
             <rect
                 x="476"
-                y="130"
-                width="13"
-                height="13"
-                rx="4"
-                fill="#58A6FF"
-                opacity="0.57"
-            />
-            
-            <rect
-                x="497"
                 y="138"
                 width="13"
                 height="5"
                 rx="4"
                 fill="#58A6FF"
-                opacity="0.38"
+                opacity="0.44"
+            />
+            
+            <rect
+                x="497"
+                y="143"
+                width="13"
+                height="2"
+                rx="4"
+                fill="#58A6FF"
+                opacity="0.18"
             />
             
             <rect
@@ -249,12 +249,12 @@
             
             <rect
                 x="539"
-                y="143"
+                y="138"
                 width="13"
-                height="2"
+                height="5"
                 rx="4"
                 fill="#58A6FF"
-                opacity="0.18"
+                opacity="0.36"
             />
             
             <rect
@@ -264,17 +264,17 @@
                 height="5"
                 rx="4"
                 fill="#58A6FF"
-                opacity="0.35"
+                opacity="0.40"
             />
             
             <rect
                 x="581"
-                y="138"
+                y="143"
                 width="13"
-                height="5"
+                height="2"
                 rx="4"
                 fill="#58A6FF"
-                opacity="0.37"
+                opacity="0.18"
             />
             
             <rect
@@ -339,22 +339,22 @@
             
             <rect
                 x="728"
+                y="138"
+                width="13"
+                height="5"
+                rx="4"
+                fill="#58A6FF"
+                opacity="0.36"
+            />
+            
+            <rect
+                x="749"
                 y="143"
                 width="13"
                 height="2"
                 rx="4"
                 fill="#58A6FF"
                 opacity="0.18"
-            />
-            
-            <rect
-                x="749"
-                y="138"
-                width="13"
-                height="5"
-                rx="4"
-                fill="#58A6FF"
-                opacity="0.35"
             />
             
             <rect
@@ -369,22 +369,22 @@
             
             <rect
                 x="791"
+                y="138"
+                width="13"
+                height="5"
+                rx="4"
+                fill="#58A6FF"
+                opacity="0.36"
+            />
+            
+            <rect
+                x="812"
                 y="143"
                 width="13"
                 height="2"
                 rx="4"
                 fill="#58A6FF"
                 opacity="0.18"
-            />
-            
-            <rect
-                x="812"
-                y="138"
-                width="13"
-                height="5"
-                rx="4"
-                fill="#58A6FF"
-                opacity="0.35"
             />
             
             <rect
@@ -449,12 +449,12 @@
             
             <rect
                 x="959"
-                y="143"
+                y="138"
                 width="13"
-                height="2"
+                height="5"
                 rx="4"
                 fill="#58A6FF"
-                opacity="0.18"
+                opacity="0.36"
             />
             
             <rect
@@ -464,21 +464,11 @@
                 height="5"
                 rx="4"
                 fill="#58A6FF"
-                opacity="0.35"
+                opacity="0.44"
             />
             
             <rect
                 x="1001"
-                y="138"
-                width="13"
-                height="5"
-                rx="4"
-                fill="#58A6FF"
-                opacity="0.38"
-            />
-            
-            <rect
-                x="1022"
                 y="143"
                 width="13"
                 height="2"
@@ -488,13 +478,23 @@
             />
             
             <rect
-                x="1043"
+                x="1022"
                 y="138"
                 width="13"
                 height="5"
                 rx="4"
                 fill="#58A6FF"
-                opacity="0.36"
+                opacity="0.39"
+            />
+            
+            <rect
+                x="1043"
+                y="143"
+                width="13"
+                height="2"
+                rx="4"
+                fill="#58A6FF"
+                opacity="0.18"
             />
             
             <rect
